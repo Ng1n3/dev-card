@@ -1,14 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 
 function App() {
   return (
     <div className="card">
       <Avatar />
-      <div>
+      <div className="data">
         <Intro />
-        {/* <SkillList /> */}
+        <SkillList />
       </div>
     </div>
   );
@@ -16,29 +16,44 @@ function App() {
 
 function Intro() {
   return (
+    <div>
+      <h1>Olayinka Olumuyiwa</h1>
     <p>
       Backend-Developer. When not coding or learning a new technology, I like to
       play video games, watch Anime or just browse the web.
     </p>
+    </div>
   );
 }
 
 function Avatar() {
   return (
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fstevano-ferdinand&psig=AOvVaw1jw6hzrz0mMQfXvB_Ak-jk&ust=1707063411810000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNDmkfTIj4QDFQAAAAAdAAAAABAx" alt="Profile pic"/>
+      <img className="avatar" src="../public/profile3.jpg" alt="Profile pic"/>
   )
 }
 
 function SkillList() {
   return (
     <div className="skill-list">
-      <SkillList name="Javascript" emoji="🚀"/>
+      <Skill   name="Javascript" emoji="🚀" color="blue"/>
+      <Skill name="HTML+CSS" emoji="💪" color="grey"/>
+      <Skill name="NodeJs" emoji="👍" color="purple"/>
+      <Skill name="MongoDB" emoji="🧧" color="gray"/>
+      <Skill name="React" emoji="🧧" color="yellow"/>
     </div>
   )
 }
 
 function Skill(props) {
-
+  console.log(props)
+  const style = {
+    backgroundColor: props.color
+  }
+  return (
+    <div className="skill">
+      <span style={style}>{props.name} {props.emoji}</span>
+    </div>
+  )
 }
 
 
